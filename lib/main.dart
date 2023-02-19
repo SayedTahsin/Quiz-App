@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:learning_basics/Answer.dart';
 import 'package:learning_basics/question.dart';
 
 void main() {
@@ -43,9 +44,9 @@ class MyAppState extends State<MyApp> {
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             Question(question: question[indx]),
-            ElevatedButton(onPressed: answerQuestion, child: Text("Option 1")),
-            ElevatedButton(onPressed: answerQuestion, child: Text("Option 2")),
-            ElevatedButton(onPressed: answerQuestion, child: Text("Option 3")),
+            Answer(answerQuestion),
+            Answer(answerQuestion),
+            Answer(answerQuestion),
           ],
         ),
       ),
