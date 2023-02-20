@@ -10,8 +10,8 @@ void main() {
 
 var indx = 0;
 var question = [
-  "What is Your Favourite Color?",
-  "What is your favourite Animal?",
+  {'Question Text':"What's your favourite color?",'Answers': ["Red","Green","Blue","White"],},
+  {'Question Text':"What's your favourite Animal?",'Answers': ["Cow","Chicken","Tiger","Lion"],},
 ];
 
 class MyApp extends StatefulWidget {
@@ -37,7 +37,15 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Quiz App"),
+          title: Text(
+            "Quiz App",
+            style: TextStyle(
+              fontSize: 30,
+              color: Color.fromARGB(255, 250, 250, 250),
+              fontFamily: 'Arial',
+              fontWeight: FontWeight.bold
+            ),
+          ),
         ),
         // ignore: prefer_const_literals_to_create_immutables
         body: Column(

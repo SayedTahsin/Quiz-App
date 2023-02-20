@@ -11,7 +11,7 @@ class Answer extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 11, 133, 233)),
+        style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 11, 133, 233),),
         onPressed: selectHendler,
         child: Text("Option 1"),
       ),
