@@ -8,22 +8,6 @@ void main() {
   runApp(MyApp());
 }
 
-var indx = 0;
-const question = [
-  {
-    'Question Text': "What's your favourite color?",
-    'Answers': ["Red", "Green", "Blue", "White"],
-  },
-  {
-    'Question Text': "What's your favourite Animal?",
-    'Answers': ["Cow", "Chicken", "Tiger", "Lion"],
-  },
-  {
-    'Question Text': "who  is your favourite person?",
-    'Answers': ['Sayed Tahsin'],
-  },
-];
-
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -34,12 +18,29 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
+  var indx = 0;
+  static const question = [
+    {
+      'Question Text': "What's your favourite color?",
+      'Answers': ["Red", "Green", "Blue", "White"],
+    },
+    {
+      'Question Text': "What's your favourite Animal?",
+      'Answers': ["Cow", "Chicken", "Tiger", "Lion"],
+    },
+    {
+      'Question Text': "who  is your favourite person?",
+      'Answers': ['Sayed Tahsin'],
+    },
+  ];
+
   void answerQuestion() {
     setState(() {
       indx++;
-      if (indx == 3) indx = 0;
     });
-    print(indx);
+    if (indx < question.length) {
+      print("we have more question");
+    }
   }
 
   @override
