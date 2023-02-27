@@ -9,7 +9,7 @@ void main() {
 }
 
 var indx = 0;
-var question = [
+const question = [
   {
     'Question Text': "What's your favourite color?",
     'Answers': ["Red", "Green", "Blue", "White"],
