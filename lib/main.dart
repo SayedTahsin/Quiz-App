@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
 
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:learning_basics/Answer.dart';
-import 'package:learning_basics/question.dart';
+import 'package:learning_basics/quiz.dart';
+import 'package:learning_basics/result.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,8 +18,8 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  var indx = 0;
-  static const question = [
+  var _indx = 0;
+  static const _question = [
     {
       'Question Text': "What's your favourite color?",
       'Answers': ["Red", "Green", "Blue", "White"],
@@ -36,11 +34,11 @@ class MyAppState extends State<MyApp> {
     },
   ];
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-      indx++;
+      _indx++;
     });
-    if (indx < question.length) {
+    if (_indx < _question.length) {
       print("we have more question");
     }
   }
@@ -61,29 +59,13 @@ class MyAppState extends State<MyApp> {
           ),
         ),
         // ignore: prefer_const_literals_to_create_immutables
-        body: indx < question.length
-            ? Column(
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  Question(question: question[indx]['Question Text'] as String),
-                  ...(question[indx]['Answers'] as List<String>).map(
-                    (answer) {
-                      return Answer(answerQuestion, answer);
-                    },
-                  ).toList(),
-                ],
+        body: _indx < _question.length
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                indx: _indx,
+                question: _question,
               )
-            : Center(
-                child: Text(
-                  "You Did it!!!",
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontFamily: 'Arial',
-                  ),
-                ),
-              ),
+            : Result(),
       ),
     );
   }
